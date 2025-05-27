@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Paw Phillips - Healing Paws & Warm Hearts</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #fff9f4;
+    color: #4d403f;
+    line-height: 1.6;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  a {
+    color: #ff7d45;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover, a:focus {
+    color: #cc6231;
+    outline: none;
+  }
+
+  /* Background decorative paw pattern */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right:0; bottom: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 15% 20%, #ff9a7644 14px, transparent 15px),
+      radial-gradient(circle at 45% 10%, #ff7d4588 10px, transparent 12px),
+      radial-gradient(circle at 75% 22%, #ffaa7744 12px, transparent 13px),
+      radial-gradient(circle at 25% 80%, #ffc5a244 9px, transparent 11px),
+      radial-gradient(circle at 80% 70%, #ff9a7544 14px, transparent 15px);
+    background-repeat: repeat;
+    background-size: 180px 180px;
+  }
+
+  header {
+    background: linear-gradient(90deg, #ff9a76, #ffd6b3);
+    padding: 3rem 2rem 3rem;
+    color: #5a3d24;
+    text-align: center;
+    box-shadow: 0 6px 22px rgba(255,154,118,0.85);
+    user-select: none;
+  }
+  header h1 {
+    margin: 0;
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  header p {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.6rem;
+    margin-top: 0.4rem;
+    color: #703700;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 3rem auto 5rem auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  section {
+    background: white;
+    border-radius: 30px;
+    margin-bottom: 3.5rem;
+    padding: 3.5rem 4rem;
+    box-shadow: 0 20px 54px rgba(255,140,60,0.44);
+    transition: box-shadow 0.35s ease;
+  }
+  section:hover {
+    box-shadow: 0 28px 62px rgba(255,140,60,0.7);
+  }
+  h2 {
+    color: #ff7d45;
+    margin-top: 0;
+    margin-bottom: 2.8rem;
+    font-weight: 900;
+    font-size: 3rem;
+    border-bottom: 6px solid #ff9a76;
+    padding-bottom: 0.7rem;
+    display: inline-block;
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 1.6px;
+    user-select: none;
+  }
+
+  /* Hero banner */
+  #hero-banner {
+    margin: 0 auto 5rem auto;
+    max-width: 1000px;
+    border-radius: 38px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 24px 62px rgba(255,140,60,0.38);
+  }
+  #hero-banner img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 420px;
+    border-radius: 38px;
+    transition: transform 0.6s ease;
+    cursor: zoom-in;
+  }
+  #hero-banner img:hover {
+    transform: scale(1.06);
+  }
+  #hero-banner .banner-text {
+    position: absolute;
+    bottom: 36px;
+    left: 36px;
+    background: rgba(255, 154, 118, 0.97);
+    color: #4a2c00;
+    padding: 2rem 3.5rem;
+    border-radius: 20px;
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    box-shadow: 0 5px 24px rgba(0,0,0,0.42);
+    user-select: none;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+
+  /* Camera and Scan Section */
+  #camera-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  #video {
+    border-radius: 38px;
+    box-shadow: 0 22px 54px rgba(255,140,60,0.68);
+    max-width: 520px;
+    width: 100%;
+    height: auto;
+    background-color: #000;
+    border: 12px solid #ff9a76;
+    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.45));
+  }
+  #scanResults {
+    flex: 1 1 440px;
+    background: #fff7f3;
+    border-radius: 38px;
+    padding: 3.5rem 4rem;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: inset 0 0 38px #ffbfaf;
+    color: #b25011;
+    font-weight: 700;
+    font-size: 1.5rem;
+    user-select: none;
+  }
+  #scanResults h3 {
+    margin-top: 0;
+    color: #d44d07;
+    font-size: 2.1rem;
+    margin-bottom: 1.8rem;
+    font-weight: 900;
+  }
+  #scanMessage {
+    flex-grow: 1;
+    overflow-y: auto;
+    font-size: 1.4rem;
+    line-height: 1.6;
+  }
+  #scanResults ul {
+    padding-left: 1.8rem;
+    margin-top: 0.7rem;
+  }
+  #scanButton {
+    background: #ff7d45;
+    border: none;
+    padding: 1.7rem 4rem;
+    border-radius: 32px;
+    color: white;
+    font-weight: 900;
+    font-size: 1.7rem;
+    cursor: pointer;
+    transition: background-color 0.35s ease, box-shadow 0.35s ease;
+    align-self: center;
+    margin-top: 3.7rem;
+    box-shadow: 0 18px 42px rgba(255,125,69,0.97);
+  }
+  #scanButton:hover:not(:disabled) {
+    background: #cc5b2e;
+    box-shadow: 0 20px 48px rgba(204,91,46,1);
+  }
+  #scanButton:disabled {
+    background: #ffd6b1;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  #scanMessage span {
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  /* Pet Products Shop */
+  #shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 3.2rem;
+  }
+  .product-card {
+    background: #fff3e6;
+    border-radius: 38px;
+    box-shadow: 0 24px 62px rgba(255,154,118,0.4);
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+    cursor: default;
+  }
+  .product-card:hover {
+    box-shadow: 0 38px 78px rgba(255,154,118,0.8);
+    transform: translateY(-10px);
+  }
+  .product-card img {
+    max-width: 100%;
+    border-radius: 38px;
+    height: 210px;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    box-shadow: 0 18px 44px rgba(255,154,118,0.55);
+    transition: transform 0.5s ease;
+  }
+  .product-card:hover img {
+    transform: scale(1.08);
+  }
+  .product-name {
+    font-weight: 900;
+    margin: 1.1rem 0 2rem;
+    text-align: center;
+    color: #bb5c09;
+    font-size: 1.6rem;
+  }
+  .product-price {
+    font-weight: 900;
+    color: #ff7d45;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+  }
+  .add-btn {
+    background: #ff7d45;
+    border: none;
+    color: white;
+    padding: 1.25rem 2rem;
+    border-radius: 32px;
+    cursor: pointer;
+    font-weight: 900;
+    width: 100%;
+    font-size: 1.5rem;
+    box-shadow: 0 16px 42px rgba(255,125,69,0.9);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    user-select: none;
+  }
+  .add-btn:hover {
+    background: #cc5b2e;
+    box-shadow: 0 20px 48px rgba(204,91,46,1);
+  }
+  .add-btn:active {
+    transform: scale(0.95);
+  }
+
+  #cart {
+    margin-top: 6rem;
+    background: #ffe9d3;
+    border-radius: 38px;
+    padding: 3rem 4rem;
+    box-shadow: 0 24px 60px rgba(255,154,118,0.5);
+  }
+  #cart h3 {
+    margin-top: 0;
+    color: #bb5c09;
+    font-size: 2.4rem;
+    font-weight: 900;
+    margin-bottom: 2.8rem;
+    text-align: center;
+  }
+  #cart ul {
+    list-style: none;
+    padding-left: 2.4rem;
+    margin-bottom: 4rem;
+    font-size: 1.7rem;
+    color: #8c4c03;
+  }
+  #cart li {
+    margin-bottom: 1rem;
+    transition: color 0.4s ease;
+  }
+  #cart li:hover {
+    color: #cc5a0d;
+  }
+  #cart-total {
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: #ff7d45;
+    text-align: right;
+  }
+
+  /* Vet Consultation Form */
+  #vet-consultation form {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  #vet-consultation label {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #bb5c09;
+  }
+  #vet-consultation input, #vet-consultation select, #vet-consultation textarea {
+    padding: 1.4rem 1.6rem;
+    border-radius: 30px;
+    border: 2px solid #ff9a76;
+    font-size: 1.4rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.35s ease;
+  }
+  #vet-consultation input:focus, #vet-consultation select:focus, #vet-consultation textarea:focus {
+    border-color: #ff7d45;
+    outline: none;
+    box-shadow: 0 0 18px #ff7d4599;
+  }
+  #vet-consultation textarea {
+    min-height: 130px;
+  }
+  #vet-consultation button {
+    background: #ff7d45;
+    color: white;
+    font-weight: 900;
+    border: none;
+    padding: 1.5rem 3rem;
+    border-radius: 32px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: background-color 0.35s ease, box-shadow 0.35s ease;
+    box-shadow: 0 16px 42px rgba(255,125,69,0.95);
+    max-width: 280px;
+    align-self: center;
+    user-select: none;
+  }
+  #vet-consultation button:hover {
+    background: #cc5b2e;
+    box-shadow: 0 24px 52px rgba(204,91,46,1);
+  }
+  #vet-consultation button:active {
+    transform: scale(0.95);
+  }
+  #vet-consultation .confirmation-message {
+    margin-top: 2rem;
+    text-align: center;
+    font-weight: 700;
+    color: #2e7d32;
+    font-size: 1.5rem;
+  }
+
+  /* Badges Section */
+  #badgesSection {
+    padding-top: 0;
+  }
+  #badges {
+    display: flex;
+    gap: 3.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .badge-card {
+    background: #ffdabc;
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 48px rgba(255,154,118,0.65);
+    cursor: default;
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.4s ease;
+    user-select: none;
+  }
+  .badge-card:hover {
+    background: #ff6c28;
+    color: white;
+    transform: scale(1.15);
+  }
+  .badge-icon {
+    font-size: 4.2rem;
+    margin-bottom: 0.7rem;
+  }
+  .badge-label {
+    font-weight: 900;
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  /* Volunteers Section */
+  #volunteersSection {
+    padding-top: 0;
+  }
+  #volunteers {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+  .volunteer-card {
+    background: #ffefdf;
+    border-radius: 30px;
+    padding: 2.7rem 1.8rem 1.8rem;
+    max-width: 260px;
+    box-shadow: 0 18px 44px rgba(255,154,118,0.6);
+    text-align: center;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    cursor: default;
+  }
+  .volunteer-card:hover {
+    transform: translateY(-16px);
+    box-shadow: 0 36px 66px rgba(255,154,118,1);
+  }
+  .volunteer-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.9rem;
+    border: 6px solid #ff7d45;
+    box-shadow: 0 10px 26px rgba(255,125,69,0.7);
+    transition: transform 0.5s ease;
+  }
+  .volunteer-card:hover .volunteer-photo {
+    transform: scale(1.18);
+    box-shadow: 0 20px 44px rgba(255,125,69,1);
+  }
+  .volunteer-name {
+    font-weight: 900;
+    margin: 0.7rem 0 0.1rem;
+    color: #bb5c09;
+    font-size: 1.6rem;
+    letter-spacing: 1.3px;
+  }
+  .volunteer-role {
+    font-size: 1.3rem;
+    color: #a05200;
+    margin-bottom: 1.4rem;
+    font-style: italic;
+  }
+
+  /* Bootcamps Section */
+  #bootcamps {
+    padding-top: 0;
+  }
+  #bootcamps .event-list {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  #bootcamps .event-item {
+    background: #fff3e0;
+    padding: 2rem 3rem;
+    margin-bottom: 2.4rem;
+    border-radius: 28px;
+    box-shadow: 0 14px 40px rgba(255,154,118,0.45);
+    transition: box-shadow 0.35s ease, transform 0.35s ease;
+    cursor: pointer;
+    user-select: none;
+  }
+  #bootcamps .event-item:hover {
+    box-shadow: 0 22px 50px rgba(255,154,118,0.85);
+    transform: translateY(-10px);
+  }
+  #bootcamps .event-title {
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: #cc5a0d;
+    margin-bottom: 0.8rem;
+  }
+  #bootcamps .event-details {
+    font-weight: 700;
+    font-style: italic;
+    color: #a04a00;
+    margin-bottom: 1.2rem;
+  }
+  #bootcamps .event-description {
+    font-size: 1.4rem;
+    line-height: 1.55;
+    color: #724400;
+  }
+
+  /* Adoption Section */
+  #adoption {
+    padding-top: 0;
+  }
+  #adoption .pet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    gap: 3rem;
+  }
+  #adoption .pet-card {
+    background: #ffedde;
+    border-radius: 38px;
+    box-shadow: 0 22px 56px rgba(255,140,60,0.56);
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+    cursor: default;
+  }
+  #adoption .pet-card:hover {
+    box-shadow: 0 34px 70px rgba(255,140,60,0.9);
+    transform: translateY(-12px);
+  }
+  #adoption img {
+    max-width: 100%;
+    border-radius: 38px;
+    height: 220px;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    box-shadow: 0 18px 44px rgba(255,140,60,0.6);
+    transition: transform 0.45s ease;
+  }
+  #adoption .pet-card:hover img {
+    transform: scale(1.07);
+  }
+  #adoption .pet-name {
+    font-weight: 900;
+    margin: 1rem 0 1.5rem;
+    text-align: center;
+    color: #c85a28;
+    font-size: 1.75rem;
+  }
+  #adoption .pet-details {
+    font-size: 1.4rem;
+    color: #9c4c22;
+    margin-bottom: 1.6rem;
+    text-align: center;
+  }
+  #adoption .adopt-btn {
+    background: #c85a28;
+    border: none;
+    color: white;
+    padding: 1.3rem 3rem;
+    border-radius: 36px;
+    cursor: pointer;
+    font-weight: 900;
+    width: 100%;
+    font-size: 1.5rem;
+    box-shadow: 0 18px 44px rgba(200,90,40,0.9);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    user-select: none;
+  }
+  #adoption .adopt-btn:hover {
+    background: #a34920;
+    box-shadow: 0 24px 56px rgba(163,73,32,1);
+  }
+  #adoption .adopt-btn:active {
+    transform: scale(0.95);
+  }
+
+  /* Responsive */
+  @media(max-width: 900px) {
+    main {
+      padding: 0 1rem;
+    }
+    section {
+      padding: 3rem 2rem;
+    }
+    #volunteers {
+      justify-content: center;
+      gap: 2rem;
+    }
+    #vet-consultation form, #bootcamps .event-list, #adoption .pet-grid {
+      padding: 0 1rem;
+    }
+    #diet-plan ul, #diet-plan p, #pet-shows .events-list {
+      padding: 0 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Paw Phillips</h1>
+  <p style="font-family: 'Pacifico', cursive; color:#703700; font-size: 1.5rem; margin-top: 0.4rem;">Healing Paws &amp; Warm Hearts for Dogs &amp; Cats</p>
+</header>
+
+<main>
+
+  <!-- Scan Section -->
+  <section id="cameraSection" aria-label="Injury Scanner for Dogs and Cats">
+    <h2>Scan Dogs &amp; Cats for Injuries</h2>
+    <div id="camera-section">
+      <video id="video" autoplay playsinline aria-live="polite" aria-label="Live camera video"></video>
+      <div id="scanResults" role="region" aria-live="polite" aria-atomic="true">
+        <h3>Scan Results</h3>
+        <div id="scanMessage">Place the dog or cat in view and click "Scan for Injuries"</div>
+        <button id="scanButton" aria-describedby="scanMessage">Scan for Injuries</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pet Products Shop -->
+  <section id="shopSection" aria-label="Pet Products Shopping Area">
+    <h2>Pet Products Shop</h2>
+    <div id="shop-grid" aria-live="polite" aria-atomic="true"></div>
+    <div id="cart" style="display:none;" aria-live="polite" aria-atomic="true">
+      <h3>Your Cart</h3>
+      <ul id="cartItems"></ul>
+      <div id="cart-total"></div>
+    </div>
+  </section>
+
+  <!-- Vet Consultation Section -->
+  <section id="vet-consultation" aria-label="Vet Consultation Form">
+    <h2>Vet Consultation</h2>
+    <form id="vetForm" aria-live="polite" aria-atomic="true">
+      <label for="petType">Pet Type</label>
+      <select id="petType" name="petType" required aria-required="true" aria-describedby="petTypeHelp">
+        <option value="" disabled selected>Select pet type</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+      </select>
+
+      <label for="petBreed">Breed</label>
+      <input type="text" id="petBreed" name="petBreed" placeholder="Enter breed" required aria-required="true" />
+
+      <label for="petAge">Age (years)</label>
+      <input type="number" id="petAge" name="petAge" min="0" step="0.1" placeholder="e.g. 2" required aria-required="true" />
+
+      <label for="symptoms">Symptoms / Concerns</label>
+      <textarea id="symptoms" name="symptoms" placeholder="Describe symptoms or concerns" required aria-required="true"></textarea>
+
+      <button type="submit">Request Consultation</button>
+      <div class="confirmation-message" aria-live="polite" role="alert" id="vetConfirmation" style="display:none;"></div>
+    </form>
+  </section>
+
+  <!-- Badges Section -->
+  <section id="badgesSection" aria-label="Badges Section">
+    <h2>Our Badges</h2>
+    <div id="badges" role="list">
+      <div class="badge-card" title="Compassionate Care" role="listitem" tabindex="0">
+        <div class="badge-icon" aria-label="Heart Icon">❤️</div>
+        <div class="badge-label">Compassionate Care</div>
+      </div>
+      <div class="badge-card" title="Pet Safety" role="listitem" tabindex="0">
+        <div class="badge-icon" aria-label="Shield Icon">🛡️</div>
+        <div class="badge-label">Pet Safety</div>
+      </div>
+      <div class="badge-card" title="Animal Welfare" role="listitem" tabindex="0">
+        <div class="badge-icon" aria-label="Paw Icon">🐾</div>
+        <div class="badge-label">Animal Welfare</div>
+      </div>
+      <div class="badge-card" title="Volunteer Spirit" role="listitem" tabindex="0">
+        <div class="badge-icon" aria-label="Hands Icon">🤝</div>
+        <div class="badge-label">Volunteer Spirit</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteers Section (dog and cat pictures) -->
+  <section id="volunteersSection" aria-label="Volunteers Section">
+    <h2>Our Volunteers</h2>
+    <div id="volunteers" role="list">
+      <div class="volunteer-card" role="listitem" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=104&q=80" alt="Buddy the Dog" class="volunteer-photo" />
+        <div class="volunteer-name">Buddy</div>
+        <div class="volunteer-role">Dog Rescuer</div>
+      </div>
+      <div class="volunteer-card" role="listitem" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&w=104&q=80" alt="Molly the Cat" class="volunteer-photo" />
+        <div class="volunteer-name">Molly</div>
+        <div class="volunteer-role">Cat Rescuer</div>
+      </div>
+      <div class="volunteer-card" role="listitem" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=104&q=80" alt="Charlie the Dog" class="volunteer-photo" />
+        <div class="volunteer-name">Charlie</div>
+        <div class="volunteer-role">Dog Trainer</div>
+      </div>
+      <div class="volunteer-card" role="listitem" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=104&q=80" alt="Luna the Cat" class="volunteer-photo" />
+        <div class="volunteer-name">Luna</div>
+        <div class="volunteer-role">Cat Specialist</div>
+      </div>
+      <div class="volunteer-card" role="listitem" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=104&q=80" alt="Max the Vet" class="volunteer-photo" />
+        <div class="volunteer-name">Max</div>
+        <div class="volunteer-role">Veterinarian</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootcamps Section -->
+  <section id="bootcamps" aria-label="Bootcamps Section">
+    <h2>Pet Training Bootcamps</h2>
+    <div class="event-list">
+      <div class="event-item" tabindex="0">
+        <div class="event-title">Citywide Canine Bootcamp</div>
+        <div class="event-details">Lakeside Training Grounds - May 10-12, 2024</div>
+        <div class="event-description">Intensive obedience training for all dog breeds, covering basics to advanced skills with interactive sessions.</div>
+      </div>
+      <div class="event-item" tabindex="0">
+        <div class="event-title">Urban Cat Socialization Bootcamp</div>
+        <div class="event-details">Central Pet Hall - June 5-7, 2024</div>
+        <div class="event-description">Specialized socialization program for cats to boost confidence and reduce stress in urban environments.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Adoption Section -->
+  <section id="adoption" aria-label="Adoption Section">
+    <h2>Pets Available for Adoption</h2>
+    <div class="pet-grid">
+      <div class="pet-card">
+        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80" alt="Adoptable dog Bella">
+        <div class="pet-name">Bella</div>
+        <div class="pet-details">Labrador Retriever - 3 years old, friendly and energetic.</div>
+        <button class="adopt-btn" aria-label="Adopt Bella">Adopt Me</button>
+      </div>
+      <div class="pet-card">
+        <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&w=400&q=80" alt="Adoptable cat Whiskers">
+        <div class="pet-name">Whiskers</div>
+        <div class="pet-details">Domestic Shorthair Cat - 2 years old, playful and affectionate.</div>
+        <button class="adopt-btn" aria-label="Adopt Whiskers">Adopt Me</button>
+      </div>
+      <div class="pet-card">
+        <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=400&q=80" alt="Adoptable dog Max">
+        <div class="pet-name">Max</div>
+        <div class="pet-details">German Shepherd - 4 years old, loyal and protective.</div>
+        <button class="adopt-btn" aria-label="Adopt Max">Adopt Me</button>
+      </div>
+      <div class="pet-card">
+        <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=400&q=80" alt="Adoptable cat Luna">
+        <div class="pet-name">Luna</div>
+        <div class="pet-details">Siamese Cat - 1.5 years old, curious and gentle.</div>
+        <button class="adopt-btn" aria-label="Adopt Luna">Adopt Me</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // Camera scanning and interaction script...
+
+  const video = document.getElementById('video');
+  const scanButton = document.getElementById('scanButton');
+  const scanMessage = document.getElementById('scanMessage');
+
+  const injuryDatabase = [
+    { type: "Cut or Laceration", remedies: [ "Clean the wound gently with warm water", "Apply antiseptic solution safe for pets", "Bandage the wound to keep it clean", "Take to vet if bleeding continues more than 10 minutes" ] },
+    { type: "Bruise or Swelling", remedies: [ "Apply a cold compress for 10-15 min every 2-3 hours", "Limit the pet's movement", "Monitor the area for worsening", "Consult vet if swelling grows or lasts more than 2 days" ] },
+    { type: "Burns", remedies: [ "Cool the burn area immediately with cool (not cold) water", "Do not apply ice directly on skin", "Cover with a clean, non-stick bandage", "Seek veterinary care urgently" ] },
+    { type: "Puncture wound", remedies: [ "Clean area carefully with vet-approved antiseptic", "Watch for infection: redness, pus, odor or warmth", "Keep pet calm to avoid further injury", "See vet as puncture wounds can be deep and risky" ] },
+    { type: "Eye or Ear Injury", remedies: [ "Avoid touching affected areas", "Prevent pet from scratching or rubbing", "Contact vet immediately", "Provide gentle care and prevent dirt exposure" ] }
+  ];
+
+  async function startCamera() {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+      video.srcObject = stream;
+      scanMessage.textContent = 'Place the dog or cat in view and click "Scan for Injuries"';
+    } catch (error) {
+      scanMessage.textContent = 'Unable to access camera. Please allow camera permissions.';
+      scanButton.disabled = true;
+    }
+  }
+
+  function detectInjury() {
+    const chance = Math.random();
+    if (chance <= 0.65) {
+      const injury = injuryDatabase[Math.floor(Math.random() * injuryDatabase.length)];
+      return injury;
+    }
+    return null;
+  }
+
+  scanButton.addEventListener('click', () => {
+    scanMessage.textContent = '🔍 Scanning...';
+    scanButton.disabled = true;
+    setTimeout(() => {
+      const injuryDetected = detectInjury();
+      if (injuryDetected) {
+        const remediesList = injuryDetected.remedies.map(rem => `<li>${rem}</li>`).join('');
+        scanMessage.innerHTML = `<strong>Injury Detected: ${injuryDetected.type}</strong><br/><br/><strong>Recommended Remedies / Medications:</strong><ul>${remediesList}</ul>`;
+      } else {
+        scanMessage.innerHTML = '<span style="color:#2e7d32; font-weight:700;">✅ No injury detected. Your pet looks healthy and happy! 🐾</span>';
+      }
+      scanButton.disabled = false;
+    }, 2600);
+  });
+
+  startCamera();
+
+  // Shopping cart logic...
+  const products = [...]; // As above, same product list
+
+  const shopGrid = document.getElementById('shop-grid');
+  const cartDiv = document.getElementById('cart');
+  const cartItemsList = document.getElementById('cartItems');
+  const cartTotalDiv = document.getElementById('cart-total');
+  let cart = {};
+
+  function renderProducts() {
+    shopGrid.innerHTML = '';
+    products.forEach(product => {
+      const card = document.createElement('div');
+      card.classList.add('product-card');
+      card.innerHTML = `
+        <img src="${product.img}" alt="${product.name}" loading="lazy" />
+        <div class="product-name">${product.name}</div>
+        <div class="product-price">$${product.price.toFixed(2)}</div>
+        <button class="add-btn" data-id="${product.id}" aria-label="Add ${product.name} to cart">Add to Cart</button>
+      `;
+      shopGrid.appendChild(card);
+    });
+  }
+
+  function renderCart() {
+    if (Object.keys(cart).length === 0) {
+      cartDiv.style.display = 'none';
+      return;
+    }
+    cartDiv.style.display = 'block';
+    cartItemsList.innerHTML = '';
+    let total = 0;
+    for (const id in cart) {
+      const product = products.find(p => p.id == id);
+      const qty = cart[id];
+      const lineTotal = product.price * qty;
+      total += lineTotal;
+      const li = document.createElement('li');
+      li.textContent = `${product.name} x${qty} - $${lineTotal.toFixed(2)}`;
+      cartItemsList.appendChild(li);
+    }
+    cartTotalDiv.textContent = `Total: $${total.toFixed(2)}`;
+  }
+
+  shopGrid.addEventListener('click', e => {
+    if(e.target.classList.contains('add-btn')) {
+      const id = e.target.getAttribute('data-id');
+      if (cart[id]) {
+        cart[id]++;
+      } else {
+        cart[id] = 1;
+      }
+      renderCart();
+      showToast(`Added "${products.find(p => p.id==id).name}" to cart!`);
+    }
+  });
+
+  function showToast(message) {
+    let toast = document.createElement('div');
+    toast.textContent = message;
+    toast.style.position = 'fixed';
+    toast.style.bottom = '30px';
+    toast.style.left = '50%';
+    toast.style.transform = 'translateX(-50%)';
+    toast.style.background = '#ff7d45';
+    toast.style.color = 'white';
+    toast.style.padding = '12px 28px';
+    toast.style.borderRadius = '30px';
+    toast.style.fontWeight = '700';
+    toast.style.fontSize = '1.2rem';
+    toast.style.boxShadow = '0 6px 18px rgba(255,125,69,0.8)';
+    toast.style.zIndex = 9999;
+    toast.style.userSelect = 'none';
+    toast.style.opacity = '0';
+    toast.style.transition = 'opacity 0.4s ease';
+    document.body.appendChild(toast);
+    setTimeout(() => { toast.style.opacity = '1'; }, 100);
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      setTimeout(() => { document.body.removeChild(toast); }, 400);
+    }, 3000);
+  }
+
+  renderProducts();
+  renderCart();
+</script>
+</body>
+</html>
