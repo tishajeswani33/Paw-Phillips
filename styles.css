@@ -1,0 +1,552 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #fff9f4;
+  color: #4d403f;
+  line-height: 1.6;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right:0; bottom:0;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle at 20% 25%, #ffd4bf44 10px, transparent 11px),
+    radial-gradient(circle at 50% 10%, #ffbca844 8px, transparent 9px),
+    radial-gradient(circle at 75% 20%, #ff8c4e33 14px, transparent 15px),
+    radial-gradient(circle at 30% 85%, #ffc9a633 7px, transparent 8px),
+    radial-gradient(circle at 70% 70%, #ff9a7544 13px, transparent 14px);
+  background-repeat: repeat;
+  background-size: 150px 150px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+header {
+  background: linear-gradient(90deg, #ff9a76, #ffd6b3);
+  padding: 2rem 2rem 3rem;
+  color: #5a3d24;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(255,154,118,0.75);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+header h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 3rem;
+  font-family: 'Pacifico', cursive;
+  letter-spacing: 1.8px;
+  text-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.15));
+}
+header .paw-icon {
+  position: absolute;
+  opacity: 0.12;
+  filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.12));
+  animation: float 7s ease-in-out infinite;
+  width: 70px;
+  height: 70px;
+}
+header .paw-icon.dog-paw:nth-child(2) {
+  left: 8%;
+  top: 18px;
+  animation-delay: 0s;
+}
+header .paw-icon.cat-paw:nth-child(3) {
+  right: 15%;
+  top: 40px;
+  animation-delay: 2.7s;
+}
+header .paw-icon.dog-paw:nth-child(4) {
+  left: 32%;
+  bottom: 20px;
+  animation-delay: 5.2s;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(-14px) rotate(-5deg);}
+}
+
+main {
+  max-width: 1100px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+section {
+  background: white;
+  border-radius: 24px;
+  margin-bottom: 2.5rem;
+  padding: 3rem 3.5rem;
+  box-shadow: 0 12px 30px rgba(255,154,118,0.28);
+  transition: box-shadow 0.3s ease;
+  scroll-margin-top: 100px;
+}
+section:hover {
+  box-shadow: 0 20px 44px rgba(255,154,118,0.45);
+}
+h2 {
+  color: #ff7d45;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  font-size: 2.6rem;
+  border-bottom: 6px solid #ff9a76;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  font-family: 'Pacifico', cursive;
+  letter-spacing: 1.3px;
+}
+#hero-banner {
+  margin-bottom: 3.5rem;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 16px 44px rgba(255,154,118,0.34);
+}
+#hero-banner img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  max-height: 350px;
+  transition: transform 0.5s ease;
+  cursor: zoom-in;
+}
+#hero-banner img:hover {
+  transform: scale(1.05);
+}
+#hero-banner .banner-text {
+  position: absolute;
+  left: 28px;
+  bottom: 36px;
+  background: rgba(255, 154, 118, 0.94);
+  color: #4a2c00;
+  padding: 1.5rem 2.6rem;
+  border-radius: 16px;
+  font-family: 'Pacifico', cursive;
+  font-size: 2.4rem;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.36);
+  user-select: none;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+#camera-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+#video {
+  border-radius: 24px;
+  box-shadow: 0 15px 32px rgba(255,140,60,0.55);
+  max-width: 460px;
+  width: 100%;
+  height: auto;
+  background: #000;
+  border: 9px solid #ff9a76;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+}
+#scanResults {
+  flex: 1 1 380px;
+  background: #fff5eb;
+  border-radius: 24px;
+  padding: 2.3rem 2.8rem;
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: inset 0 0 22px #ffbd9e;
+  color: #b25011;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+#scanResults h3 {
+  margin-top: 0;
+  color: #d14b00;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+  font-weight: 900;
+}
+#scanMessage {
+  flex-grow: 1;
+  overflow-y: auto;
+  line-height: 1.5;
+  font-size: 1.2rem;
+}
+#scanResults ul {
+  padding-left: 1.4rem;
+}
+#scanButton {
+  background: #ff7d45;
+  border: none;
+  padding: 1.1rem 2.3rem;
+  border-radius: 18px;
+  color: white;
+  font-weight: 900;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+  align-self: center;
+  margin-top: 2.4rem;
+  box-shadow: 0 10px 24px rgba(255,125,69,0.9);
+}
+#scanButton:hover:not(:disabled) {
+  background: #cc6231;
+  box-shadow: 0 12px 30px rgba(204,98,49,0.95);
+}
+#scanButton:disabled {
+  background: #ffd6b1;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+#scanMessage span {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+#shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 2.3rem;
+}
+.product-card {
+  background: #fff2e0;
+  border-radius: 24px;
+  box-shadow: 0 18px 36px rgba(255,154,118,0.5);
+  padding: 1.5rem 1.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.35s ease, transform 0.3s ease;
+  cursor: default;
+}
+.product-card:hover {
+  box-shadow: 0 26px 52px rgba(255,154,118,0.8);
+  transform: translateY(-7px);
+}
+.product-card img {
+  max-width: 100%;
+  border-radius: 24px;
+  height: 190px;
+  object-fit: cover;
+  margin-bottom: 1.3rem;
+  box-shadow: 0 12px 24px rgba(255,154,118,0.35);
+  transition: transform 0.3s ease;
+}
+.product-card:hover img {
+  transform: scale(1.05);
+}
+.product-name {
+  font-weight: 900;
+  margin: 0.65rem 0 1.3rem;
+  text-align: center;
+  color: #bb5c09;
+  font-size: 1.3rem;
+}
+.product-price {
+  font-weight: 900;
+  color: #ff7d45;
+  margin-bottom: 1.4rem;
+  font-size: 1.35rem;
+}
+.add-btn {
+  background: #ff7d45;
+  border: none;
+  color: white;
+  padding: 0.9rem 1.4rem;
+  border-radius: 18px;
+  cursor: pointer;
+  font-weight: 900;
+  width: 100%;
+  font-size: 1.2rem;
+  box-shadow: 0 10px 24px rgba(255,125,69,0.75);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+  user-select: none;
+}
+.add-btn:hover {
+  background: #cc6231;
+  box-shadow: 0 12px 30px rgba(204,98,49,0.9);
+}
+.add-btn:active {
+  transform: scale(0.97);
+}
+
+#cart {
+  margin-top: 3rem;
+  background: #ffecd8;
+  border-radius: 24px;
+  padding: 1.9rem 2.8rem;
+  box-shadow: 0 18px 38px rgba(255,154,118,0.4);
+}
+#cart h3 {
+  margin-top: 0;
+  color: #bb5c09;
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+#cart ul {
+  list-style: none;
+  padding-left: 1.6rem;
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  color: #8c4c03;
+}
+#cart li {
+  margin-bottom: 0.7rem;
+  transition: color 0.3s ease;
+}
+#cart li:hover {
+  color: #cc5a0d;
+}
+#cart-total {
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: #ff7d45;
+  text-align: right;
+}
+
+#vet-consultation form {
+  max-width: 550px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+}
+#vet-consultation label {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #bb5c09;
+}
+#vet-consultation input, #vet-consultation select, #vet-consultation textarea {
+  padding: 0.85rem 1.1rem;
+  border-radius: 14px;
+  border: 2px solid #ff9a76;
+  font-size: 1.1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+#vet-consultation input:focus, #vet-consultation select:focus, #vet-consultation textarea:focus {
+  border-color: #ff7d45;
+  outline: none;
+  box-shadow: 0 0 10px #ff7d4599;
+}
+#vet-consultation textarea {
+  min-height: 100px;
+}
+#vet-consultation button {
+  background: #ff7d45;
+  color: white;
+  font-weight: 900;
+  border: none;
+  padding: 1.15rem 2rem;
+  border-radius: 20px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 10px 26px rgba(255,125,69,0.8);
+  max-width: 220px;
+  align-self: center;
+  user-select: none;
+}
+#vet-consultation button:hover {
+  background: #cc6231;
+  box-shadow: 0 14px 34px rgba(204,98,49,1);
+}
+#vet-consultation button:active {
+  transform: scale(0.96);
+}
+#vet-consultation .confirmation-message {
+  margin-top: 1.4rem;
+  text-align: center;
+  font-weight: 700;
+  color: #2e7d32;
+  font-size: 1.3rem;
+}
+
+#diet-plan {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#diet-plan h3 {
+  margin-top: 1.8rem;
+  margin-bottom: 1rem;
+  font-family: 'Pacifico', cursive;
+  color: #cc5a0d;
+  font-size: 1.7rem;
+  border-bottom: 3.5px solid #fe8f52;
+  padding-bottom: 0.3rem;
+}
+#diet-plan ul {
+  list-style-type: disc;
+  padding-left: 2.2rem;
+  font-size: 1.15rem;
+  color: #874200;
+}
+#diet-plan ul li {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+#diet-plan p {
+  margin-bottom: 1.3rem;
+  font-size: 1.1rem;
+  max-width: 900px;
+}
+
+#pet-shows .events-list {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+}
+#pet-shows .event-card {
+  background: #fff0db;
+  border-radius: 18px;
+  padding: 1.8rem 2.4rem;
+  box-shadow: 0 10px 20px rgba(255,139,61,0.42);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+#pet-shows .event-card:hover {
+  box-shadow: 0 20px 42px rgba(255,139,61,0.65);
+  transform: translateY(-8px);
+}
+#pet-shows .event-name {
+  font-weight: 900;
+  color: #ba5e15;
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem 0;
+}
+#pet-shows .event-date {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #b26c0a;
+  margin: 0 0 0.7rem 0;
+}
+#pet-shows .event-location {
+  font-style: italic;
+  color: #8c5306;
+  margin: 0 0 1rem 0;
+}
+#pet-shows .event-description {
+  font-size: 1.05rem;
+  color: #6e4704;
+  line-height: 1.5;
+}
+
+#badges {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.badge-card {
+  background: #ffdabc;
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 32px rgba(255,154,118,0.55);
+  cursor: default;
+  transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
+  user-select: none;
+}
+.badge-card:hover {
+  background: #ff6c28;
+  color: white;
+  transform: scale(1.08);
+}
+.badge-icon {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+.badge-label {
+  font-weight: 900;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+#volunteers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.7rem;
+  justify-content: center;
+}
+.volunteer-card {
+  background: #ffefdf;
+  border-radius: 26px;
+  padding: 2.2rem 1.5rem 1.5rem;
+  max-width: 240px;
+  box-shadow: 0 14px 30px rgba(255,154,118,0.45);
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: default;
+}
+.volunteer-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 24px 44px rgba(255,154,118,0.8);
+}
+.volunteer-photo {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border: 6px solid #ff7d45;
+  box-shadow: 0 7px 20px rgba(255,125,69,0.6);
+  transition: transform 0.35s ease;
+}
+.volunteer-card:hover .volunteer-photo {
+  transform: scale(1.13);
+  box-shadow: 0 14px 28px rgba(255,125,69,0.9);
+}
+.volunteer-name {
+  font-weight: 900;
+  margin: 0.45rem 0;
+  color: #bb5c09;
+  font-size: 1.35rem;
+  letter-spacing: 1.1px;
+}
+.volunteer-role {
+  font-size: 1.1rem;
+  color: #a05200;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+@media (max-width: 750px) {
+  #camera-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  #scanResults {
+    width: 100%;
+    min-height: 230px;
+  }
+  #shop-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  }
+  #vet-consultation form {
+    padding: 0 1rem;
+  }
+  #diet-plan ul, #diet-plan p, #pet-shows .events-list {
+    padding: 0 1rem;
+  }
+}
+</style>
