@@ -45,28 +45,6 @@
 - **AI/ML Integration:**  
   - Custom image analysis for breed & injury detection (via API or ML model)
 
-- **Database:**  
-  - MongoDB
 
-- **Authentication:**  
-  - Firebase / JWT (optional, if implemented)
 
-- **Deployment:**  
-  - Frontend: GitHub Pages / Netlify / Vercel  
-  - Backend: Render / Heroku / Railway
 
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js and npm
-- MongoDB
-
-### Installation
-
-```bash
-git clone https://github.com/tishajeswani33/paw-phillips.git
-cd paw-phillips
-npm install
